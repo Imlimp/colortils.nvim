@@ -170,7 +170,7 @@ local function confirm_select()
         item = item:sub(1, 3)
       end
         print(item)
-        print(format_strings[1])
+        print(format_strings[item]())
         --vim.fn.setreg(colortils.settings.register, format_strings[item]())
         transparency = nil
     end)
