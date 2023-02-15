@@ -164,7 +164,7 @@ local function confirm_select()
     }, {
         prompt = "Choose format",
     }, function(item)
-        if item[1] == 'c' then
+        if item:sub(1,1) == "c" then
           item = item:sub(1,5)
       else
         item = item:sub(1, 3)
