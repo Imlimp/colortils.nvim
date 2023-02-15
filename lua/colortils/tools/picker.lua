@@ -162,6 +162,7 @@ local function confirm_select()
         "hex: " .. format_strings["hex"](),
         "rgb: " .. format_strings["rgb"](),
         "hsl: " .. format_strings["hsl"](),
+        "color: " .. format_strings["color"](),
     }, {
         prompt = "Choose format",
     }, function(item)
