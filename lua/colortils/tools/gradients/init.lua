@@ -37,9 +37,9 @@ local format_strings = {
     ["color"] = function(color, state)
         local red, green, blue = color_utils.get_values(color)
         if state.transparency then
-            return "rgb(" .. string.sub(tostring(red / 255), 1, 7) .. ", " .. string.sub(tostring(green / 255), 1, 7) .. ", " .. string.sub(tostring(blue / 255), 1, 7) .. ", " .. string.sub(tostring(1 - state.transparency / 100), 1, 7) .. ")"
+            return "rgb(" .. string.sub(tostring(red / 255), 1, 7) .. "f, " .. string.sub(tostring(green / 255), 1, 7) .. "f, " .. string.sub(tostring(blue / 255), 1, 7) .. "f, " .. string.sub(tostring(1 - state.transparency / 100), 1, 7) .. "f);"
         else
-            return "rgb(" .. string.sub(tostring(red / 255), 1, 7) .. ", " .. string.sub(tostring(green / 255), 1, 7) .. ", " .. string.sub(tostring(blue / 255), 1, 7) .. ")"
+            return "rgb(" .. string.sub(tostring(red / 255), 1, 7) .. "f, " .. string.sub(tostring(green / 255), 1, 7) .. "f, " .. string.sub(tostring(blue / 255), 1, 7) .. "f);"
         end
     end,
 }
