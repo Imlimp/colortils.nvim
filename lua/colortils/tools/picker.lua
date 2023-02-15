@@ -165,9 +165,8 @@ local function confirm_select()
         prompt = "Choose format",
     }, function(item)
         item = item:sub(1, 4)
-        print(format_strings[item]())
-        print(format_strings[item]())
-        vim.fn.setreg(colortils.settings.register, format_strings[item]())
+        print(format_strings)
+        --vim.fn.setreg(colortils.settings.register, format_strings[item]())
         transparency = nil
     end)
 end
