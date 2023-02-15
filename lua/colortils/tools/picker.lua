@@ -74,9 +74,9 @@ local format_strings = {
     end,
     ["color"] = function()
         if transparency then
-            return "new Color(" .. 1 / red .. ", " .. 1 / green .. ", " .. 1 / blue .. ", " .. 1 - transparency / 100 .. ");"
+            return "new Color(" .. string.sub(tostring(1 / red), 1, 7) .. ", " .. string.sub(tostring(1 / green), 1, 7) .. ", " .. string.sub(tostring(1 / blue), 1, 7) .. ", " .. string.sub(tostring(1 - transparency / 100), 1, 7) .. ");"
         else
-            return "new Color(" .. string.sub(tostring(1 / red), 1, 6) .. ", " .. 1 / green .. ", " .. 1 / blue .. ");"
+            return "new Color(" .. string.sub(tostring(1 / red), 1, 7) .. ", " .. string.sub(tostring(1 / green), 1, 7) .. ", " .. string.sub(tostring(1 / blue), 1, 7) .. ");"
         end
     end,
 }
