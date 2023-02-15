@@ -209,7 +209,7 @@ local function replace_select()
     }, {
         prompt = "Choose format",
     }, function(item)
-        item = item:sub(1, 3)
+        item = item:sub(1, 4)
         color_utils.replace_under_cursor(format_strings[item]())
         transparency = nil
     end)

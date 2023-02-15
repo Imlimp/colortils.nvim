@@ -34,6 +34,14 @@ local format_strings = {
             return "rgb(" .. red .. ", " .. green .. ", " .. blue .. ")"
         end
     end,
+    ["color"] = function(color, state)
+        local red, green, blue = color_utils.get_values(color)
+        if state.transparency then
+            return "rgb(" .. 1 / red .. ", " .. 1 / green .. ", " .. 1 / blue .. ", " .. 1 - state.transparency / 100 .. ")"
+        else
+            return "rgb(" .. 1 / red .. ", " .. 1 / green .. ", " .. 1 / blue .. ")"
+        end
+    end,
 }
 
 local function update(colors, state)
@@ -297,10 +305,11 @@ return function(color, color_2, alpha)
             "hex: " .. format_strings["hex"](colors.gradient_big[state.idx], state),
             "rgb: " .. format_strings["rgb"](colors.gradient_big[state.idx], state),
             "hsl: " .. format_strings["hsl"](colors.gradient_big[state.idx], state),
+            "color: " .. format_strings["color"](colors.gradient_big[state.idx], state),
         }, {
             prompt = "Choose format",
         }, function(item)
-            item = item:sub(1, 3)
+            item = item:sub(1, 4)
             vim.fn.setreg(settings.register, format_strings[item](colors.gradient_big[state.idx], state))
         end)
     end, {
@@ -326,10 +335,11 @@ return function(color, color_2, alpha)
             "hex: " .. format_strings["hex"](colors.gradient_big[state.idx], state),
             "rgb: " .. format_strings["rgb"](colors.gradient_big[state.idx], state),
             "hsl: " .. format_strings["hsl"](colors.gradient_big[state.idx], state),
+            "color: " .. format_strings["color"](colors.gradient_big[state.idx], state),
         }, {
             prompt = "Choose format",
         }, function(item)
-            item = item:sub(1, 3)
+            item = item:sub(1, 4)
             color_utils.replace_under_cursor(format_strings[item](colors.gradient_big[state.idx], state))
         end)
     end, {
