@@ -164,7 +164,11 @@ local function confirm_select()
     }, {
         prompt = "Choose format",
     }, function(item)
-        --item = item:sub(1, 3)
+        if item[1] == 'c' then
+          item = item:sub(1,5)
+      else
+        item = item:sub(1, 3)
+      end
         print(item)
         print(format_strings[1])
         --vim.fn.setreg(colortils.settings.register, format_strings[item]())
