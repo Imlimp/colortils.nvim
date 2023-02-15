@@ -74,11 +74,9 @@ local format_strings = {
     end,
     ["color"] = function()
         if transparency then
-            local h, s, l, a = unpack(color_utils.rgb_to_hsl(red, green, blue, 1 - transparency / 100))
-            return "hsl(" .. h .. ", " .. s .. "%, " .. l .. "%, " .. a .. ")"
+            return "new Color(" .. 1 / red .. ", " .. 1 / green .. ", " .. 1 / blue .. ", " .. 1 - transparency / 100 .. ");"
         else
-            local h, s, l = unpack(color_utils.rgb_to_hsl(red, green, blue))
-            return "hsl(" .. h .. ", " .. s .. "%, " .. l .. "%)"
+            return "new Color(" .. 1 / red .. ", " .. 1 / green .. ", " .. 1 / blue .. ");"
         end
     end,
 }
