@@ -76,7 +76,7 @@ local format_strings = {
         if transparency then
             return "new Color(" .. 1 / red .. ", " .. 1 / green .. ", " .. 1 / blue .. ", " .. 1 - transparency / 100 .. ");"
         else
-            return "new Color(" .. 1 / red .. ", " .. 1 / green .. ", " .. 1 / blue .. ");"
+            return "new Color(" .. string.sub(tostring(1 / red), 1, 6) .. ", " .. 1 / green .. ", " .. 1 / blue .. ");"
         end
     end,
 }
