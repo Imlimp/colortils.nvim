@@ -309,7 +309,11 @@ return function(color, color_2, alpha)
         }, {
             prompt = "Choose format",
         }, function(item)
-            item = item:sub(1, 4)
+          if item:sub(1,1) == "c" then
+            item = item:sub(1,5)
+          else
+            item = item:sub(1, 3)
+          end
             vim.fn.setreg(settings.register, format_strings[item](colors.gradient_big[state.idx], state))
         end)
     end, {
@@ -339,7 +343,11 @@ return function(color, color_2, alpha)
         }, {
             prompt = "Choose format",
         }, function(item)
-            item = item:sub(1, 4)
+          if item:sub(1,1) == "c" then
+            item = item:sub(1,5)
+          else
+            item = item:sub(1, 3)
+          end
             color_utils.replace_under_cursor(format_strings[item](colors.gradient_big[state.idx], state))
         end)
     end, {

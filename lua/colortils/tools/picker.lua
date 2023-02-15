@@ -213,7 +213,11 @@ local function replace_select()
     }, {
         prompt = "Choose format",
     }, function(item)
-        item = item:sub(1, 4)
+      if item:sub(1,1) == "c" then
+          item = item:sub(1,5)
+      else
+        item = item:sub(1, 3)
+      end
         color_utils.replace_under_cursor(format_strings[item]())
         transparency = nil
     end)
